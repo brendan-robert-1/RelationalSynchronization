@@ -5,16 +5,8 @@ for reporting we can use some of the tools of Relational Synchornization to expe
 This tool can completly hide all decisions about updating, inserting, and deleting records in the target database. In addition it writes all of the sql
 behind the scenes using vendor specific syntax, and performs the DML in efficient batches.
 
-The project starts with a Crawler object which is obtainable with a
-
-	 Crawler.newBuilder() 
-
-call where we initialize some essential information regarding
-the target database + credentials. More interstingly we can call any number of 
-
-	.bind(TableSchematic s, TableRetriever r)
-
- before build(). These bindings represent
+The project starts with a Crawler object which is obtainable with a Crawler.newBuilder() call where we initialize some essential information regarding
+the target database + credentials. More interstingly we can call any number of .bind(TableSchematic s, TableRetriever r) before build(). These bindings represent
 entire tables in the database. We are declaring this is the table defined by the schematic, and here is the client provided retreiver that will retrieve the data and build a Table
 at runtime. If we had 3 tables, a User, a Product, and a Subscription we would see a Crawler build like so, note the 3 bind calls 
 		
@@ -40,9 +32,7 @@ Table's in the context of this tool are a structure that store a list of Record'
 
 	@Override 
 	public Table retrieveTale(TableSchematic schematic){
- 		//We get some kind of data like this from "somewhere" REST API, external DB, file on remote server, anywhere
-		List<String> userNames = users;
-
+		List<String> userNames = users; //We get some kind of data like this from "somewhere" REST API, external DB, file on remote server, anywhere
 		Table table = new Table(schematic);
 		
 		for(String userName : userNames){
