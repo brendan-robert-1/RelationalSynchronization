@@ -8,12 +8,17 @@ behind the scenes using vendor specific syntax, and performs the DML in efficien
 The project starts with a Crawler object which is obtainable with a Crawler.newBuilder() call where we initialize some essential information regarding
 the target database + credentials. More interstingly we can call any number of .bind(TableSchematic s, TableRetriever r) before build(). These bindings represent
 entire tables in the database. We are declaring this is the table defined by the schematic, and here is the client provided retreiver that will retrieve the data and build a Table
-at runtime. If we had 3 tables, a User, a Product, and a Subscription we would see 3 bind calls that may look like so
-
-	.bind(userSchematic, userRetriever)
-	.bind(productSchematic, new ProductTableRetriever())
-	.bind(subscriptionSchematic, new SubscriptionTableRetriever())
-
+at runtime. If we had 3 tables, a User, a Product, and a Subscription we would see a Crawler build like so, note the 3 bind calls 
+		
+	Crawler crawler = new Crawler.newBuilder()
+		.dbVendor(DBVendor.MySQL)
+		.jdbcUrl(jdbcURL)
+		.pw(pw)
+		.user(user)
+		.bind(userSchematic, userRetriever)
+		.bind(productSchematic, new ProductTableRetriever())
+		.bind(subscriptionSchematic, new SubscriptionTableRetriever())
+		.build()
 which tells the Crawler that when we run crawl() we want to retrieve and synchronize these tables in this order.
 
 Using this tool is generally quite time efficient, using internal data structures that provide very fast search and comparison function on Record and Table objects. 
