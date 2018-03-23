@@ -17,14 +17,6 @@ import net.evolveip.crawlers.external.retrieval.TableRetriever;
  * @author brobert
  *
  */
-/**
- * @author brobert
- *
- */
-/**
- * @author brobert
- *
- */
 public class Crawler {
 
 	private static final Logger logger = LoggerFactory.getLogger(Archiver.class);
@@ -106,11 +98,8 @@ public class Crawler {
 
 
 
-		/**
-		 *
-		 * @param nameForLogs
-		 * @return
-		 */
+		
+
 		public Builder nameForLogs(String nameForLogs) {
 			crawler.nameForLogs = nameForLogs;
 			return this;
@@ -118,10 +107,7 @@ public class Crawler {
 
 
 
-		/**
-		 * @param jdbcUrl
-		 * @return
-		 */
+	
 		public Builder jdbcUrl(String jdbcUrl) {
 			Validate.notEmpty(jdbcUrl);
 			crawler.jdbcUrl = jdbcUrl;
@@ -129,11 +115,6 @@ public class Crawler {
 		}
 
 
-
-		/**
-		 * @param user
-		 * @return
-		 */
 		public Builder user(String user) {
 			Validate.notEmpty(user);
 			crawler.user = user;
@@ -142,10 +123,6 @@ public class Crawler {
 
 
 
-		/**
-		 * @param pw
-		 * @return
-		 */
 		public Builder pw(String pw) {
 			Validate.notEmpty(pw);
 			crawler.pw = pw;
@@ -154,10 +131,7 @@ public class Crawler {
 
 
 
-		/**
-		 * @param dbVendor
-		 * @return
-		 */
+		
 		public Builder dbVendor(DBVendor dbVendor) {
 			crawler.dbVendor = dbVendor;
 			return this;
@@ -190,9 +164,6 @@ public class Crawler {
 
 
 
-		/**
-		 * @return
-		 */
 		public Crawler build() {
 			Validate.notEmpty(crawler.user);
 			Validate.notEmpty(crawler.jdbcUrl);
