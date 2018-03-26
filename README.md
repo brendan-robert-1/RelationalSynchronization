@@ -39,7 +39,7 @@ this process. Specifically with regards to REST API based data sources. At the e
 Table's in the context of this tool are a structure that store a list of Record's and a metadata object called TableSchematic. A simple example for a generic TableRetriever's retrieveTable() method might looks like so:
 
 	@Override 
-	public Table retrieveTale(TableSchematic schematic){
+	public Table retrieveTable(TableSchematic schematic){
  		//We get some kind of data like this from "somewhere" REST API, external DB, file on remote server, anywhere
 		List<String> userNames = users;
 
