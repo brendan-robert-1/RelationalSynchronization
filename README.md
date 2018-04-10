@@ -1,4 +1,4 @@
-Relational Synchronization is useful for assisting in simple ETL (Exchange Transform, and Load) operations on data sources.
+Relational Synchronization is useful for assisting in simple ETL (Extract Transform, and Load) operations on data sources.
 Typically this is used when we have a data source that we have to "mirror" in some database. For example, if we need to create a condensed and local database
 for reporting we can use some of the tools of Relational Synchornization to expedite and streamline this process. 
 
